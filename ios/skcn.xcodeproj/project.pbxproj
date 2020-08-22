@@ -52,6 +52,7 @@
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = skcn/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = skcn/main.m; sourceTree = "<group>"; };
 		20B10F353379D85B9D41333B /* Pods-skcn.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-skcn.release.xcconfig"; path = "Target Support Files/Pods-skcn/Pods-skcn.release.xcconfig"; sourceTree = "<group>"; };
+		248AB96B24F174CD00738F4B /* SKCN.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = SKCN.entitlements; path = skcn/SKCN.entitlements; sourceTree = "<group>"; };
 		2D02E47B1E0B4A5D006451C7 /* skcn-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "skcn-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D02E4901E0B4A5D006451C7 /* skcn-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "skcn-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E848976418B9528FBCD6091 /* Pods-skcn-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-skcn-tvOS.release.xcconfig"; path = "Target Support Files/Pods-skcn-tvOS/Pods-skcn-tvOS.release.xcconfig"; sourceTree = "<group>"; };
@@ -125,6 +126,7 @@
 		13B07FAE1A68108700A75B9A /* skcn */ = {
 			isa = PBXGroup;
 			children = (
+				248AB96B24F174CD00738F4B /* SKCN.entitlements */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
@@ -663,6 +665,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = skcn/SKCN.entitlements;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 34HW57V62Y;
 				ENABLE_BITCODE = NO;
@@ -687,6 +690,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = skcn/SKCN.entitlements;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 34HW57V62Y;
 				INFOPLIST_FILE = skcn/Info.plist;
