@@ -17,6 +17,8 @@ import MyColors from './component/resources/colors/colors';
 import InitialSettings from './component/screens/InitialSettings';
 
 const Stack = createStackNavigator();
+import {observerId} from './component/util/ChangeTimeObserver';
+
 const App: () => React$Node = () => {
   return (
     <>
