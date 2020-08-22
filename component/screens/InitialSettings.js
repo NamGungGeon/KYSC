@@ -96,7 +96,7 @@ const InitialSettings = ({navigation}) => {
         <ScrollView overScrollMode={'never'}>
           <View>
             <View style={styles.section}>
-              <Text style={styles.mainTitle}>Welcome to SKCN!</Text>
+              <Text style={styles.mainTitle}>Welcome to KYSC!</Text>
               <Text style={styles.explain}>
                 This action is needed only once
               </Text>
