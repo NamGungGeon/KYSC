@@ -29,7 +29,7 @@ const _registerLocalNotification = (message = 'Welcome', time) => {
     allowWhileIdle: false,
 
     // for production
-    repeatType: 'minute', // (optional) Repeating interval. Check 'Repeating Notifications' section for more info.
+    // repeatType: 'minute', // (optional) Repeating interval. Check 'Repeating Notifications' section for more info.
     date: showTime,
 
     // test to trigger each miniute
@@ -50,7 +50,7 @@ export default {
       requestPermissions: Platform.OS === 'ios',
       popInitialNotification: true,
     });
-    this.removeAllNotifications();
+    // this.removeAllNotifications();
     _registerLocalNotification(message);
     // AppState.addEventListener('change', _handleAppStateChange);
   },
