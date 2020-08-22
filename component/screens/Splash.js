@@ -38,7 +38,7 @@ const Splash = ({navigation}) => {
   return (
     <View style={styles.wrapper}>
       <Image style={styles.icon} source={shaverIcon} />
-      <Text style={styles.title}>SKCN</Text>
+      <Text style={styles.title}>KYSC</Text>
       <Text style={styles.explain}>Keep your shaver clean!</Text>
     </View>
   );
