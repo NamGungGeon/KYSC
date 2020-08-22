@@ -135,7 +135,7 @@ const Home = ({navigation}) => {
       setDiffDays(diffDays);
 
       if (diffDays < changingPeriod) {
-        setMessage('Your shaver is so clean!');
+        setMessage('Your shaver is so clean');
         setBackgroundStyle(styles.background_good);
         setBaseColor(MyColors.primary);
         setRepresentIcon(cleanIcon);
@@ -222,7 +222,7 @@ const Home = ({navigation}) => {
                   <Text style={styles.status_detail}>
                     {diffDays
                       ? `The last changing day was ${diffDays} days ago`
-                      : 'You change shaver today!'}
+                      : 'You changed shaver today'}
                   </Text>
                 </View>
               </View>
