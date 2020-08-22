@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
 import {Pressable, StyleSheet, Text, View} from 'react-native';
-import Icon from 'react-native-vector-icons/AntDesign';
 import MyColors from '../resources/colors/colors';
 
 const styles = StyleSheet.create({
