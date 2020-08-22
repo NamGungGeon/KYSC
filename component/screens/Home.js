@@ -230,8 +230,8 @@ const Home = ({navigation}) => {
                 <Pressable
                   style={styles.bottom_button}
                   onPress={async () => {
-                    const current = '2020-01-01';
-                    // const current = moment().format('YYYY-MM-DD');
+                    // const current = '2020-01-01';
+                    const current = moment().format('YYYY-MM-DD');
                     setLastChangingDate(current);
                     console.log(current);
                     await AsyncStorage.setItem('lastChangingDate', current)
