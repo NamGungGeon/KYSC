@@ -1,8 +1,15 @@
 import React, {useEffect, useRef, useState} from 'react';
-import {TouchableOpacity, View, StyleSheet, Animated, Text} from 'react-native';
+import {
+  TouchableOpacity,
+  View,
+  StyleSheet,
+  Animated,
+  Text,
+  Pressable,
+} from 'react-native';
 import MyColors from '../resources/colors/colors';
 
-const IconButton = ({imageSize = 30, children, onPress = () => {}}) => {
+const IconButton = ({style, imageSize = 30, children, onPress = () => {}}) => {
   const effectSize = imageSize * 1.6;
   const styles = StyleSheet.create({
     wrapper: {
@@ -45,12 +52,12 @@ const IconButton = ({imageSize = 30, children, onPress = () => {}}) => {
     <View
       style={{
         ...styles.wrapper,
+        ...style,
       }}>
-      <TouchableOpacity
-        activeOpacity={1}
+      <Pressable
         style={{
-          width: 30,
-          height: 30,
+          width: imageSize,
+          height: imageSize,
           position: 'absolute',
           zIndex: 999,
         }}
@@ -59,7 +66,7 @@ const IconButton = ({imageSize = 30, children, onPress = () => {}}) => {
           onPress();
         }}>
         {children}
-      </TouchableOpacity>
+      </Pressable>
       <Animated.View
         style={{
           ...styles.rippleEffect,
