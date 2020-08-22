@@ -8,6 +8,7 @@ import {
   StyleSheet,
   Pressable,
   Alert,
+  Platform,
 } from 'react-native';
 import moment from 'moment';
 import MyColors from '../resources/colors/colors';
@@ -80,11 +81,7 @@ const InitialSettings = ({navigation}) => {
     await AsyncStorage.setItem('changingPeriod', `${changingPeriod}`);
     Alert.alert(
       'All Setting is finished',
-      'Now, we send to notification when your shaver knife is dirty',
-    );
-    NotificationUtil.register(
-      'Welcome!',
-      'We send to notification when your shaver knife is dirty',
+      'Now, we check your shaver knife is clean or dirty',
     );
     navigation.reset({
       index: 0,

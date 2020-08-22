@@ -134,7 +134,7 @@ const Home = ({navigation}) => {
       console.log(diffDays, changingPeriod);
       setDiffDays(diffDays);
 
-      if (diffDays <= changingPeriod) {
+      if (diffDays < changingPeriod) {
         setMessage('Your shaver is so clean!');
         setBackgroundStyle(styles.background_good);
         setBaseColor(MyColors.primary);

@@ -1,6 +1,14 @@
-import {AppState, Platform, PushNotificationIOS} from 'react-native';
+import {AppState, Platform} from 'react-native';
 import PushNotification from 'react-native-push-notification';
-import moment from 'moment';
+import PushNotificationIOS from '@react-native-community/push-notification-ios';
+
+PushNotification.configure({
+  onNotification: function (notification) {
+    notification.finish(PushNotificationIOS.FetchResult.NoData);
+  },
+  requestPermissions: Platform.OS === 'ios',
+  popInitialNotification: true,
+});
 
 const _handleAppStateChange = (nextAppState) => {
   if (nextAppState === 'active') {
@@ -10,11 +18,9 @@ const _handleAppStateChange = (nextAppState) => {
 
 const _registerLocalNotification = (message = 'Welcome', time) => {
   let showTime = new Date();
-  console.log('before date', showTime, moment());
   showTime.setSeconds(showTime.getSeconds() + 1);
-  console.log('date', showTime);
 
-  PushNotification.localNotificationSchedule({
+  const details = {
     /* Android Only Properties */
     vibrate: true,
     vibration: 300,
@@ -25,11 +31,15 @@ const _registerLocalNotification = (message = 'Welcome', time) => {
     /* iOS and Android properties */
     message, // (required)
     playSound: false,
-    number: 1,
-    allowWhileIdle: false,
+    // number: 3,
+    allowWhileIdle: true,
+
+    /* only for IOS*/
+    alertBody: message,
+    // fireDate: showTime,
 
     // for production
-    // repeatType: 'minute', // (optional) Repeating interval. Check 'Repeating Notifications' section for more info.
+    repeatType: 'day', // (optional) Repeating interval. Check 'Repeating Notifications' section for more info.
     date: showTime,
 
     // test to trigger each miniute
@@ -38,18 +48,12 @@ const _registerLocalNotification = (message = 'Welcome', time) => {
 
     // test to trigger one time
     // date: new Date(Date.now() + 20 * 1000),
-  });
+  };
+  PushNotification.localNotificationSchedule(details);
   console.log('pushed');
 };
 export default {
   register: function (message, time) {
-    PushNotification.configure({
-      onNotification: function (notification) {
-        notification.finish(PushNotificationIOS.FetchResult.NoData);
-      },
-      requestPermissions: Platform.OS === 'ios',
-      popInitialNotification: true,
-    });
     // this.removeAllNotifications();
     _registerLocalNotification(message);
     // AppState.addEventListener('change', _handleAppStateChange);
