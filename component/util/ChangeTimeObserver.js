@@ -13,7 +13,7 @@ const observer = async () => {
     const diffDays = moment().diff(moment(lastChangeDay, 'YYYY-MM-DD'), 'days');
     if (diffDays >= changingPeriod) {
       NotificationUtil.register(
-        'Today is the day you should change your shaver knife',
+        'Today is the day you should change your shaver',
       );
     }
   }

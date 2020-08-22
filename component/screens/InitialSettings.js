@@ -81,7 +81,7 @@ const InitialSettings = ({navigation}) => {
     await AsyncStorage.setItem('changingPeriod', `${changingPeriod}`);
     Alert.alert(
       'All Setting is finished',
-      'Now, we check your shaver knife is clean or dirty',
+      'Now, we check your shaver is clean or dirty',
     );
     navigation.reset({
       index: 0,
@@ -103,7 +103,7 @@ const InitialSettings = ({navigation}) => {
             </View>
             <View style={styles.section}>
               <Text style={styles.title}>
-                Step 1: Choose the last date changing shaver knife
+                Step 1: Choose the last date changing shaver
               </Text>
               <Text style={styles.explain}>
                 This information is used to notify the next changing day

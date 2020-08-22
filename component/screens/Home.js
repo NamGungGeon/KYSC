@@ -140,12 +140,12 @@ const Home = ({navigation}) => {
         setBaseColor(MyColors.primary);
         setRepresentIcon(cleanIcon);
       } else if (diffDays < changingPeriod * 1.2) {
-        setMessage('You should change shaver knife');
+        setMessage('You should change shaver');
         setBackgroundStyle(styles.background_caution);
         setBaseColor(MyColors.caution);
         setRepresentIcon(cautionIcon);
       } else {
-        setMessage('Your shaver is dirty. You must change shaver knife');
+        setMessage('Your shaver is dirty. You must change shaver');
         setBackgroundStyle(styles.background_danger);
         setBaseColor(MyColors.alert);
         setRepresentIcon(dirtyIcon);
@@ -222,7 +222,7 @@ const Home = ({navigation}) => {
                   <Text style={styles.status_detail}>
                     {diffDays
                       ? `The last changing day was ${diffDays} days ago`
-                      : 'You change shaver knife today!'}
+                      : 'You change shaver today!'}
                   </Text>
                 </View>
               </View>
@@ -246,7 +246,7 @@ const Home = ({navigation}) => {
                   }}>
                   <Text
                     style={{...styles.bottom_button_text, color: baseColor}}>
-                    I change my shaver knife today
+                    I change my shaver today
                   </Text>
                 </Pressable>
               </View>
