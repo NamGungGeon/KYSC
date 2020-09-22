@@ -1,4 +1,4 @@
-package com.skcn;
+package com.kysc;
 
 import com.facebook.react.ReactActivity;
 
