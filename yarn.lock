@@ -5718,10 +5718,10 @@ react-native-iphone-x-helper@^1.2.1:
   resolved "https://registry.yarnpkg.com/react-native-iphone-x-helper/-/react-native-iphone-x-helper-1.2.1.tgz#645e2ffbbb49e80844bb4cbbe34a126fda1e6772"
   integrity sha512-/VbpIEp8tSNNHIvstuA3Swx610whci1Zpc9mqNkqn14DkMbw+ORviln2u0XyHG1kPvvwTNGZY6QpeFwxYaSdbQ==
 
-react-native-push-notification@^5.0.1:
-  version "5.0.1"
-  resolved "https://registry.yarnpkg.com/react-native-push-notification/-/react-native-push-notification-5.0.1.tgz#d7d563c8ed7e56335b311702a93aa6f4a9ced97a"
-  integrity sha512-3xRGLgJfUo8tUPFokA3TVC4jE4uo2uVUnxmtQ1pscNn6BjZnx2+kLdsJK4kDRyjxc/CpTEMfUyZ5pkMsqIgdYw==
+react-native-push-notification@^5.1.1:
+  version "5.1.1"
+  resolved "https://registry.yarnpkg.com/react-native-push-notification/-/react-native-push-notification-5.1.1.tgz#104572ddc8c73b1a3a95c90e26d05800c51b12c5"
+  integrity sha512-CJmKqzM2P/s+a9PImoaiUN4TP1+K4YfmG1B0uUbavgFdGhTtRPTLLwDfFk2h3J6VmTXNak82rUz2iGwyptHm5w==
   dependencies:
     "@react-native-community/push-notification-ios" "^1.4.0"
 

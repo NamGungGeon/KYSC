@@ -1,0 +1,1 @@
+export const NOTIFICATION_CHANGE_ALARM = 1234;

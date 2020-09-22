@@ -1,6 +1,5 @@
 import AsyncStorage from '@react-native-community/async-storage';
 import moment from 'moment';
-import NotificationUtil from './NotificationUtil';
 import {Platform} from 'react-native';
 
 const observer = async () => {
@@ -12,9 +11,9 @@ const observer = async () => {
   if (lastChangeDay && changingPeriod && !isNaN(changingPeriod)) {
     const diffDays = moment().diff(moment(lastChangeDay, 'YYYY-MM-DD'), 'days');
     if (diffDays >= changingPeriod) {
-      NotificationUtil.register(
-        'Today is the day you should change your shaver',
-      );
+      // NotificationUtil.register(
+      //   'Today is the day you should change your shaver',
+      // );
     }
   }
 };
