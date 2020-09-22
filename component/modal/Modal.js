@@ -12,6 +12,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   modal: {
+    width: '90%',
     backgroundColor: MyColors.white,
     padding: 16,
   },

@@ -22,6 +22,7 @@ import cleanIcon from '../resources/image/clean.png';
 import dirtyIcon from '../resources/image/virus.png';
 import cautionIcon from '../resources/image/stain.png';
 import ResetModal from '../modal/ResetModal';
+import ChangeConfirmModal from '../modal/ChangeConfirmModal';
 
 const styles = StyleSheet.create({
   wrapper: {
@@ -154,6 +155,7 @@ const Home = ({navigation}) => {
   }, [lastChangingDate, changingPeriod]);
 
   const [showResetModal, setShowResetModal] = useState(false);
+  const [showChangeModal, setShowChangeModal] = useState(false);
   return (
     <>
       <StatusBar backgroundColor={baseColor} />
@@ -165,6 +167,29 @@ const Home = ({navigation}) => {
         }}
         onNo={() => {
           setShowResetModal(false);
+        }}
+      />
+      <ChangeConfirmModal
+        visible={showChangeModal}
+        onYes={async () => {
+          setShowChangeModal(false);
+
+          // const current = '2020-01-01';
+          const current = moment().format('YYYY-MM-DD');
+          setLastChangingDate(current);
+          console.log(current);
+          await AsyncStorage.setItem('lastChangingDate', current)
+            .then(() => {
+              setLastChangingDate(current);
+              Alert.alert('Good!', 'Successfully saved');
+            })
+            .catch((e) => {
+              Alert.alert('Error', e.toString());
+              console.error(e);
+            });
+        }}
+        onNo={() => {
+          setShowChangeModal(false);
         }}
       />
       <SafeAreaView
@@ -228,20 +253,9 @@ const Home = ({navigation}) => {
               <View style={styles.bottom_section}>
                 <Pressable
                   style={styles.bottom_button}
-                  onPress={async () => {
-                    // const current = '2020-01-01';
-                    const current = moment().format('YYYY-MM-DD');
-                    setLastChangingDate(current);
-                    console.log(current);
-                    await AsyncStorage.setItem('lastChangingDate', current)
-                      .then(() => {
-                        setLastChangingDate(current);
-                        Alert.alert('Good!', 'Successfully saved');
-                      })
-                      .catch((e) => {
-                        Alert.alert('Error', e.toString());
-                        console.error(e);
-                      });
+                  onPress={() => {
+                    console.log('onPress');
+                    setShowChangeModal(true);
                   }}>
                   <Text
                     style={{...styles.bottom_button_text, color: baseColor}}>
