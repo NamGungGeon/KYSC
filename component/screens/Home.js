@@ -157,17 +157,16 @@ const Home = ({navigation}) => {
   return (
     <>
       <StatusBar backgroundColor={baseColor} />
-      <Modal animationType="fade" transparent={true} visible={showResetModal}>
-        <ResetModal
-          onYes={() => {
-            setShowResetModal(false);
-            navigation.push('InitialSettings');
-          }}
-          onNo={() => {
-            setShowResetModal(false);
-          }}
-        />
-      </Modal>
+      <ResetModal
+        visible={showResetModal}
+        onYes={() => {
+          setShowResetModal(false);
+          navigation.push('InitialSettings');
+        }}
+        onNo={() => {
+          setShowResetModal(false);
+        }}
+      />
       <SafeAreaView
         style={{
           flex: 1,
