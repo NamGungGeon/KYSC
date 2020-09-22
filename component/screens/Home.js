@@ -86,35 +86,43 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
 });
+
+let refresherId = null;
 const Home = ({navigation}) => {
   const [lastChangingDate, setLastChangingDate] = useState();
   const [changingPeriod, setChangingPeriod] = useState();
   const [ready, setReady] = useState(false);
 
   //initialize
-  useEffect(() => {
-    (async () => {
-      try {
-        const lastChangeDay = await AsyncStorage.getItem('lastChangingDate');
-        const changingPeriod = await AsyncStorage.getItem('changingPeriod');
-        setLastChangingDate(lastChangeDay);
-        console.log('before parsing', lastChangeDay, changingPeriod);
-        setChangingPeriod(parseInt(changingPeriod));
+  const loadInitialData = async () => {
+    try {
+      const lastChangeDay = await AsyncStorage.getItem('lastChangingDate');
+      const changingPeriod = await AsyncStorage.getItem('changingPeriod');
+      setLastChangingDate(lastChangeDay);
+      console.log('before parsing', lastChangeDay, changingPeriod);
+      setChangingPeriod(parseInt(changingPeriod));
 
-        if (!lastChangeDay || !changingPeriod || isNaN(changingPeriod)) {
-          //initial setting is needed
-          navigation.reset({
-            index: 0,
-            routes: [{name: 'InitialSettings'}],
-          });
-        } else {
-          //ready!
-          setReady(true);
-        }
-      } catch (e) {
-        console.error(e);
+      if (!lastChangeDay || !changingPeriod || isNaN(changingPeriod)) {
+        //initial setting is needed
+        navigation.reset({
+          index: 0,
+          routes: [{name: 'InitialSettings'}],
+        });
+      } else {
+        //ready!
+        setReady(true);
       }
-    })();
+    } catch (e) {
+      console.error(e);
+    }
+  };
+  useEffect(() => {
+    loadInitialData();
+
+    refresherId = setInterval(loadInitialData, 60 * 1000);
+    return () => {
+      if (refresherId) clearInterval(refresherId);
+    };
   }, []);
 
   const [diffDays, setDiffDays] = useState(0);
