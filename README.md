@@ -3,9 +3,12 @@ Keep Your Shaver Clean
 
 ## What is KYSC?
 Using dirty and older shaver is very dangerous.
+
 That may cause hurt or infection...
 
+
 Now you just tap button in app whenever change shaver!
+
 KYSC let you know the day you should change your shaver using notification.
 
 **KYSC** is built with **react-native**
