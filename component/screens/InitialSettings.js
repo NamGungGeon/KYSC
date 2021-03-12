@@ -14,8 +14,7 @@ import MyColors from '../resources/colors/colors';
 import {Calendar} from 'react-native-calendars';
 import SelectableList from '../primitive/SelectableList';
 import AsyncStorage from '@react-native-community/async-storage';
-import * as PushNotification from 'react-native-push-notification';
-import {NOTIFICATION_CHANGE_ALARM} from '../resources/values/notificationId';
+import {reserveNotification} from '../services/NotificationService';
 
 const styles = StyleSheet.create({
   background: {
@@ -87,24 +86,22 @@ const InitialSettings = ({navigation}) => {
       index: 0,
       routes: [{name: 'Home'}],
     });
-    PushNotification.localNotificationSchedule({
-      message: 'OK! Notification service is successfully registered.', // (required)
-      date: new Date(Date.now() + 5 * 1000), // in 5 secs
-      allowWhileIdle: true, // (optional) set notification to work while on doze, default: false
-    });
 
     //reserve notification for the day when shaver should be changed
     const nextChangeDate = moment(lastChangingDate, 'YYYY-MM-DD').add(
       changingPeriod,
       'days',
     );
-    PushNotification.cancelLocalNotifications({id: NOTIFICATION_CHANGE_ALARM});
-    PushNotification.localNotificationSchedule({
-      id: NOTIFICATION_CHANGE_ALARM,
-      message: 'You should change shaver', // (required)
-      date: nextChangeDate.toDate(), // next changing date
-      allowWhileIdle: true, // (optional) set notification to work while on doze, default: false
-    });
+    reserveNotification([
+      {
+        message: 'OK! Notification service is successfully registered.', // (required)
+        date: new Date(Date.now() + 5 * 1000), // in 5 secs
+      },
+      {
+        message: 'You should change shaver', // (required)
+        date: nextChangeDate.toDate(), // next changing date
+      },
+    ]);
   };
   return (
     <>

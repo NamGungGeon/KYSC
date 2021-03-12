@@ -8,7 +8,6 @@ import {
   Image,
   ActivityIndicator,
   Pressable,
-  Modal,
   Alert,
 } from 'react-native';
 import MyColors from '../resources/colors/colors';
@@ -23,8 +22,7 @@ import dirtyIcon from '../resources/image/virus.png';
 import cautionIcon from '../resources/image/stain.png';
 import ResetModal from '../modal/ResetModal';
 import ChangeConfirmModal from '../modal/ChangeConfirmModal';
-import * as PushNotification from 'react-native-push-notification';
-import {NOTIFICATION_CHANGE_ALARM} from '../resources/values/notificationId';
+import {reserveNotification} from '../services/NotificationService';
 
 const styles = StyleSheet.create({
   wrapper: {
@@ -197,19 +195,12 @@ const Home = ({navigation}) => {
               Alert.alert('Error', e.toString());
               console.error(e);
             });
+
           //re-setting change alarm
-          const nextChangeDate = moment(lastChangingDate, 'YYYY-MM-DD').add(
-            changingPeriod,
-            'days',
-          );
-          PushNotification.cancelLocalNotifications({
-            id: NOTIFICATION_CHANGE_ALARM,
-          });
-          PushNotification.localNotificationSchedule({
-            id: NOTIFICATION_CHANGE_ALARM,
+          const nextChangeDate = moment().add(changingPeriod, 'days');
+          reserveNotification({
             message: 'You should change shaver', // (required)
             date: nextChangeDate.toDate(), // next changing date
-            allowWhileIdle: true, // (optional) set notification to work while on doze, default: false
           });
         }}
         onNo={() => {
