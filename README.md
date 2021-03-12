@@ -13,7 +13,9 @@ KYSC let you know the day you should change your shaver using notification.
 **KYSC** is built with **react-native**
 
 ## Download
-Not supported now
+Android: [Playstore link](https://play.google.com/store/apps/details?id=com.skcn)
+
+iOS/iPadOS: [Appstore link](https://apps.apple.com/us/app/id1532876290)
 
 ## Need Support?
 Using this page(<https://satisfactoryplace.tistory.com/152>) or [issues category](https://github.com/NamGungGeon/KYSC/issues).
